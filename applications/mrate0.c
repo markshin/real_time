@@ -4,7 +4,7 @@
 #include <string.h>
 
 void phase1() {
-  printf("MRATE0 : welcome to phase1\n");
+  printf("\nMRATE0 : welcome to phase1\n");
   int conn_id0 = 3, conn_id1 = 4;
   char msginit[10] = "none";
   char buf0[20];
@@ -20,7 +20,7 @@ void phase1() {
 }
 
 void phase2() {
-  printf("MRATE0 : no works in phase 2\n");
+  printf("\nMRATE0 : no works in phase 2\n");
 }
 
 

@@ -4,7 +4,7 @@
 #include <string.h>
 
 void phase1() {
-  printf("MRATE1 : welcome to phase1 of task1\n");
+  printf("\nMRATE1 : welcome to phase1 of task1\n");
   int conn_id0 = 3, conn_id1 = 4;
   char msginit[10] = "none";
   char buf[20];
