@@ -13,7 +13,6 @@ int pals_recv(uint32_t conn_id, void *msg, uint32_t size) {
   // copy data to msg (using memcpy?)
   // return -1 if failed
   // is it needs conn_id?? need for safe??
-  int i;
   rx_pals_port_t *rx_port;
   if (MAX_MSG_BYTESIZE < size) 
     return -2;

@@ -3,7 +3,7 @@
 // TODO: define example taskgroups, tasks, and conns
 pals_config_t config_data = {
   .taskgroups = {
-    { .group_id = 0, .period = 300000000L, .num_phases = 2, .phases = {0, 15000000} },
+    { .group_id = 0, .period = 300000000L, .num_phases = 1, .phases = {0} },
     { .group_id = 1, .period = 200000000L, .num_phases = 1, .phases = {0} }
   },
   .tasks = {

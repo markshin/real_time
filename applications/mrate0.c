@@ -19,15 +19,10 @@ void phase1() {
 
 }
 
-void phase2() {
-  printf("\nMRATE0 : no works in phase 2\n");
-}
-
 
 void pals_set_init_data(task_init_t *init_data) {
   init_data->task_id = 0;
-  init_data->num_phases = 2;
+  init_data->num_phases = 1;
 
   init_data->phase_func[0] = phase1;
-  init_data->phase_func[1] = phase2;
 }
