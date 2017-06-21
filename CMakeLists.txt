@@ -5,22 +5,10 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(SOURCE_FILES
     applications/app.c
-    applications/communicate0.c
-    applications/communicate1.c
     applications/conf.c
-    applications/conf_comm.c
-    applications/conf_mcast.c
-    applications/conf_mcast_p.c
     applications/conf_mrate.c
-    applications/mcast0.c
-    applications/mcast1.c
-    applications/mcast2.c
-    applications/mcast_p0.c
-    applications/mcast_p1.c
-    applications/mcast_p2.c
     applications/mrate0.c
     applications/mrate1.c
-    applications/mrate2.c
     app.h
     conf.h
     pals_base.h
