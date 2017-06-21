@@ -2,7 +2,6 @@
 #include "pals_task.h"
 #include "pals_port.h"
 #include "pals_socket.h"
-#include "pals_mcast_socket.h"
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
@@ -36,7 +35,6 @@ int pals_send(uint32_t conn_id, void *msg, uint32_t size) {
   pals_msg.seq_num = tx_port->next_seq_num;
   tx_port->next_seq_num += 1;
 
-  // TODO : add multicast send
   pals_time_t recv_time;
   if (tx_port->multi_phase > 0) {
     // recv_time = next phase start time
@@ -52,13 +50,7 @@ int pals_send(uint32_t conn_id, void *msg, uint32_t size) {
     recv_time = add_time_ns(get_base_time(task.state.pals_base_time, tx_port->pals_period), tx_port->pals_period);
   }
   pals_msg.recv_time = hton_pals_time(recv_time);
-  if (tx_port->num_recv_tasks > 1) {
-    // multicasting
-    printf("send multicasting\n");
-    return pals_socket_sendto(task.socket_mcast_tx, &pals_msg, sizeof(pals_msg), tx_port->ipaddr, tx_port->port);
-  } else {
     // uni-casting
     printf("send uni-casting\n");
     return pals_socket_sendto(task.socket_tx, &pals_msg, sizeof(pals_msg), tx_port->ipaddr, tx_port->port);
-  }
 }
