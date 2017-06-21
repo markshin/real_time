@@ -154,8 +154,7 @@ int main() {
       task.state.cur_phase = i;
       pals_msg_buffer_swap(&task);
       read_ret = pals_read_socket(task.socket_rx, &task);
-      mcast_read_ret = pals_read_socket(task.socket_mcast_rx, &task);
-      if ((read_ret < 0) || (mcast_read_ret < 0)) {
+      if (read_ret < 0) {
 	// TODO: print err msg
 	// TODO: handle errors. now just exit
 	printf("socket read fail\n");

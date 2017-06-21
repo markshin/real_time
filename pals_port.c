@@ -38,11 +38,8 @@ int insert_tx_port(tx_pals_port_set_t *tx_port_set,
   if (tx_port_set->num_ports + 1 > MAX_NUM_SIMPLEX_CONN)
     return -1;
  
-  // TODO: check uniqueness of conn_id?
   pals_port->conn_id = cid;
-  // TODO: check existence of recv_tid
   pals_port->num_recv_tasks = num_recv_tasks;
-  /* memcpy(&pals_port->recv_task_id, &recv_tid, num_recv_tasks * sizeof(uint32_t)); */
   strncpy(pals_port->ipaddr, ipaddr, 16);
   pals_port->port = port;
 
@@ -61,9 +58,7 @@ int insert_rx_port(rx_pals_port_set_t *rx_port_set,
   if (rx_port_set->num_ports + 1 > MAX_NUM_SIMPLEX_CONN)
     return -1;
 
-  // TODO: check uniqueness of conn_id?
   pals_port->conn_id = cid;
-  // TODO: check existence of recv_tid
   pals_port->send_task_id = send_tid;
   pals_port->cur_msgs_info.num_msg_buf = 0;
   pals_port->nxt_msgs_info.num_msg_buf = 0;

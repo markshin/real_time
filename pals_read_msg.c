@@ -32,7 +32,6 @@ static void swap_msg_buffer(pals_msg_buf_info_t *cur_msg_info, pals_msg_buf_info
 
 void pals_msg_buffer_swap(task_t *task) {
   // swap cur_msg buffer and nxt_msg buffer
-  // YH TODO : Calculate swap timing. multi phase : every time. multi rate : each hyper period start
   int i;
   pals_time_t fit_time;
   for (i = 0; i < task->tx_port_set.num_ports; i ++) {
@@ -48,7 +47,6 @@ void pals_msg_buffer_swap(task_t *task) {
 
   for (i = 0; i < task->rx_port_set.num_ports; i ++) {
     if (task->rx_port_set.ports[i].multi_phase == 0) {
-      // multi casting or multi rate
       fit_time = get_base_time(task->state.pals_base_time, task->rx_port_set.ports[i].pals_period);
       if (compare_pals_time(task->state.pals_phase_base_time, fit_time) == 0) {
 	// every hyper-period, swap buffer
@@ -92,18 +90,14 @@ static int pals_recv_msg(int sock, pals_msg_t *msg) {
 
 int pals_read_socket(int sock, task_t *task) {
   int how_many = 0;
-  //int move_counter;
-  //int current_length;
   pals_msg_t recved_msg;
   rx_pals_port_t *rx_port;
-  //current_length = 0;
-  //move_counter = 0;
 
   // bring msg from socket one by one to buffer : make function later
   while(pals_recv_msg(sock, &recved_msg) >= 0) {
     how_many ++;
     rx_port = get_rx_port(&task->rx_port_set, recved_msg.conn_id);
-    if (rx_port == NULL) continue; // multicasted, but not for me
+    if (rx_port == NULL) continue;
     if (recv_msg_rx_port(rx_port, &recved_msg) < 0) {
       return -1;
     }

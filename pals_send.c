@@ -58,7 +58,7 @@ int pals_send(uint32_t conn_id, void *msg, uint32_t size) {
     return pals_socket_sendto(task.socket_mcast_tx, &pals_msg, sizeof(pals_msg), tx_port->ipaddr, tx_port->port);
   } else {
     // uni-casting
-    printf("send uni-casting\n");
+    printf("send\n");
     return pals_socket_sendto(task.socket_tx, &pals_msg, sizeof(pals_msg), tx_port->ipaddr, tx_port->port);
   }
 }
