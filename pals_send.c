@@ -51,6 +51,6 @@ int pals_send(uint32_t conn_id, void *msg, uint32_t size) {
   }
   pals_msg.recv_time = hton_pals_time(recv_time);
     // uni-casting
-    printf("send uni-casting\n");
+    printf("send\n");
     return pals_socket_sendto(task.socket_tx, &pals_msg, sizeof(pals_msg), tx_port->ipaddr, tx_port->port);
 }

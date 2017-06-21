@@ -4,7 +4,7 @@
 #include <string.h>
 
 int read_msg_by_seq(pals_msg_buf_info_t *msgs_info, uint32_t seq_n, void *buf, uint32_t size) {
-  int i = 0, j = 0;
+  int i = 0;
   int found = -1;
   for (i = 0; i < msgs_info->num_msg_buf; ++i) {
     if (msgs_info->msg_buf[i].seq_num == seq_n) {

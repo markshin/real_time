@@ -5,7 +5,6 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
 set(SOURCE_FILES
     applications/app.c
-    applications/conf.c
     applications/conf_mrate.c
     applications/mrate0.c
     applications/mrate1.c
