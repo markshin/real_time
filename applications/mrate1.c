@@ -1,11 +1,10 @@
 // example app code
 #include "../app.h"
-#include "../pals_task.h"
 #include <stdio.h>
 #include <string.h>
 
 void phase1() {
-  printf("welcome to phase1 of task1\n");
+  printf("MRATE1 : welcome to phase1 of task1\n");
   int conn_id0 = 3, conn_id1 = 4;
   char msginit[10] = "none";
   char buf[20];

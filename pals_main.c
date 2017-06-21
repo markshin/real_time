@@ -11,7 +11,7 @@
 
 // extern task_t task;
 
-int task_init(pals_config_t *conf, conf_task_t *conf_task, conf_taskgroup_t *conf_taskgroup, task_init_t idata) {
+int task_init(conf_task_t *conf_task, conf_taskgroup_t *conf_taskgroup, task_init_t idata) {
   int i;
 
   task.task_id = conf_task->task_id;
@@ -110,7 +110,7 @@ int pals_init(pals_config_t *conf) {
     return -1;
   }
   //task 
-  ret = task_init(conf, conf_task, conf_taskgroup, idata);
+  ret = task_init(conf_task, conf_taskgroup, idata);
   if (ret == -2)
     return ret;
   //conn
@@ -128,7 +128,6 @@ int main() {
   phase_t p;
   
   if (pals_init(&conf) < 0) {
-    // init failed
     // TODO: print err msg
     exit(0);
   }
